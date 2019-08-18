@@ -1,0 +1,19 @@
+.fuck-form {
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  > :not(first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.fuck-form__button {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  height: 3rem;
+  font-size: 20px;
+  border-radius: 1rem;
+}

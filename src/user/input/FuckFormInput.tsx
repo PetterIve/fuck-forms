@@ -13,10 +13,12 @@ export interface FuckFormInputProps {
   key: string;
   label: string;
   onValueChanged: (newValue: string)=> void;
+  placeholder?: string;
 }
 
 export const FuckFormInput = (props: FuckFormInputProps) => {
-  const {error, key, label, onValueChanged} = props;
+  const {error, key, label, onValueChanged } = props;
+
 
   const [value, setValue] = useState('');
   useEffect(() => {
@@ -27,12 +29,13 @@ export const FuckFormInput = (props: FuckFormInputProps) => {
 
   const [focused, setFocused] = useState();
 
-  const labelClassName = classnames({ focused: focused || value.length > 0 });
+  const placeholder = focused ? props.placeholder : undefined;
+  const labelClassName = classnames({ focused: focused || placeholder || value.length > 0 }, 'fuck-form-input__label');
 
   return (
     <div key={key} className="fuck-form-input__container">
       <label className={labelClassName}  htmlFor={key}>{label}</label>
-      <input onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
+      <input className="fuck-form-input" placeholder={placeholder} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
       {error && <ul>
         {error.messages.map(error => (
           <li>{error}</li>

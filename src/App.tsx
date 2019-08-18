@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { UserForm } from './user/UserForm';
-import { User } from './user/UserSchema';
+import { FuckForm } from './user/FuckForm';
+import { User, UserSchema } from './user/UserSchema';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
   }
 
   return (
-    <UserForm onFormSubmitted={onFormSubmitted} />
+    <FuckForm className="my-custom-form" onFormSubmitted={onFormSubmitted} schema={UserSchema} />
   );
 }
 

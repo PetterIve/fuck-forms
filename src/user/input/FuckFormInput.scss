@@ -1,52 +1,16 @@
 $label-text-height: 1rem;
-$bottom-padding: 0.5rem;
+$padding: 1rem;
+$child-spacing: 0.5rem;
 
-$input-height: $label-text-height + ($bottom-padding);
+$input-height: 3rem;
 
 .fuck-form-input__container {
   position: relative;
   display: flex;
   flex-direction: column;
 
-  label {
-    position: absolute;
-    top: $label-text-height + ($bottom-padding);
-    left: $bottom-padding;
-    z-index: 1;
-    transition: all 0.15s ease-in;
-
-    &.focused {
-      top: 0;
-      left: 0;
-      font-weight: 600;
-      color: gray;
-    }
-
-    &.valid {
-      color: green;
-    }
-
-    &.error {
-      color: red;
-    }
-  }
-
   input {
-    margin-top: $input-height;
-    border: 0;
-    height: $input-height;
-    padding: $bottom-padding;
-    border-bottom: 2px solid #e1e1e1;
-    font-size: $label-text-height;
-    outline: none;
 
-    &.valid {
-      border-color: green;
-    }
-
-    &.error {
-      border-color: red;
-    }
   }
 
   ul {
@@ -56,11 +20,50 @@ $input-height: $label-text-height + ($bottom-padding);
   }
 }
 
-.user-form {
-  display: flex;
-  flex-direction: column;
+.fuck-form-input__label {
+  position: absolute;
+  top: $input-height - $child-spacing;
+  left: $padding;
+  z-index: 1;
+  transition: all 0.15s ease-in;
+
+  &.focused {
+    top: 0;
+    left: 0;
+    font-weight: 600;
+    color: gray;
+  }
+
+  &.valid {
+    color: green;
+  }
+
+  &.error {
+    color: red;
+  }
+}
+
+.fuck-form-input {
+  box-shadow: 0 4px 8px rgba(0, 0, 51, 0.25);
+  height: $input-height;
+  padding-left: $padding;
+  border-radius: 8px;
+  margin-top: $label-text-height + $child-spacing;
+  border: 0;
+  font-size: $label-text-height;
+  outline: none;
+
+  &.valid {
+    border-color: green;
+  }
+
+  &.error {
+    border-color: red;
+  }
 }
 
 * {
-  box-sizing: border-box;
+
+  font-family: 'Raleway', sans-serif;
+
 }
