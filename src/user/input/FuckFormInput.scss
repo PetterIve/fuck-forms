@@ -1,0 +1,66 @@
+$label-text-height: 1rem;
+$bottom-padding: 0.5rem;
+
+$input-height: $label-text-height + ($bottom-padding);
+
+.fuck-form-input__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    position: absolute;
+    top: $label-text-height + ($bottom-padding);
+    left: $bottom-padding;
+    z-index: 1;
+    transition: all 0.15s ease-in;
+
+    &.focused {
+      top: 0;
+      left: 0;
+      font-weight: 600;
+      color: gray;
+    }
+
+    &.valid {
+      color: green;
+    }
+
+    &.error {
+      color: red;
+    }
+  }
+
+  input {
+    margin-top: $input-height;
+    border: 0;
+    height: $input-height;
+    padding: $bottom-padding;
+    border-bottom: 2px solid #e1e1e1;
+    font-size: $label-text-height;
+    outline: none;
+
+    &.valid {
+      border-color: green;
+    }
+
+    &.error {
+      border-color: red;
+    }
+  }
+
+  ul {
+    color: red;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
