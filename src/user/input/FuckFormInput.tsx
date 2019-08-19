@@ -10,6 +10,9 @@ export interface FuckFormError {
 
 export interface FuckFormInputProps {
   error?: FuckFormError;
+  /**
+   * The identifier must be unique within the form. Used for the label's `htmlFor` as well as the input's `id` attributes.
+   */
   identifier: string;
   label: string;
   onValueChanged: (newValue: string)=> void;
