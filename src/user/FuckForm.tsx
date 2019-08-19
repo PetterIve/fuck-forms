@@ -65,7 +65,7 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
   }});
 
   const inputs = inputProps.map(inputProps => (
-    <FuckFormInput {...inputProps}/>
+    <FuckFormInput key={inputProps.identifier} {...inputProps}/>
   ))
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
