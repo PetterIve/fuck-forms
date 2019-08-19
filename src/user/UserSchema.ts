@@ -5,7 +5,7 @@ export const UserSchema = Joi.object({
   lastName: Joi.string().label('Last name').example('Doe'),
   email: Joi.string().email().label('Email').example('john@doe.com'),
   age: Joi.number().label('Age').example(18),
-  city: Joi.string().label('City')
+  city: Joi.string().label('City').example('Trondheim')
 });
 
 export interface User {

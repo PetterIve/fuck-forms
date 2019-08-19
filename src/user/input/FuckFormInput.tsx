@@ -19,7 +19,6 @@ export interface FuckFormInputProps {
 export const FuckFormInput = (props: FuckFormInputProps) => {
   const {error, key, label, onValueChanged } = props;
 
-
   const [value, setValue] = useState('');
   useEffect(() => {
     onValueChanged(value)
@@ -30,13 +29,16 @@ export const FuckFormInput = (props: FuckFormInputProps) => {
   const [focused, setFocused] = useState();
 
   const placeholder = focused ? props.placeholder : undefined;
-  const labelClassName = classnames({ focused: focused || placeholder || value.length > 0 }, 'fuck-form-input__label');
+  const shouldInputTranslate = focused || placeholder || value.length > 0;
+  const labelClassName = classnames({ 'fuck-form-input__label--focused': shouldInputTranslate }, 'fuck-form-input__label', { 'fuck-form-input__label--error': error });
+
+  const inputClassName = classnames('fuck-form-input', {'fuck-form-input--error': error});
 
   return (
     <div key={key} className="fuck-form-input__container">
       <label className={labelClassName}  htmlFor={key}>{label}</label>
-      <input className="fuck-form-input" placeholder={placeholder} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
-      {error && <ul>
+      <input className={inputClassName} placeholder={placeholder} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
+      {error && <ul className="fuck-form__error-list">
         {error.messages.map(error => (
           <li>{error}</li>
         ))}

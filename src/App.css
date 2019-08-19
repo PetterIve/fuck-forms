@@ -1,3 +1,7 @@
 .my-custom-form {
     width: 45%;
 }
+
+.form-container {
+    padding: 1rem;
+}

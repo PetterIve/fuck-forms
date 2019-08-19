@@ -10,7 +10,10 @@ function App() {
   }
 
   return (
-    <FuckForm className="my-custom-form" onFormSubmitted={onFormSubmitted} schema={UserSchema} />
+    <div className="form-container">
+      <h1>User form</h1>
+      <FuckForm className="my-custom-form" onFormSubmitted={onFormSubmitted} schema={UserSchema} />
+    </div>
   );
 }
 

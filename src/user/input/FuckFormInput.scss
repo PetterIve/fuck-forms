@@ -4,20 +4,14 @@ $child-spacing: 0.5rem;
 
 $input-height: 3rem;
 
+$valid-color: green;
+$error-color: red;
+$text-color: #333;
+
 .fuck-form-input__container {
   position: relative;
   display: flex;
   flex-direction: column;
-
-  input {
-
-  }
-
-  ul {
-    color: red;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .fuck-form-input__label {
@@ -25,45 +19,44 @@ $input-height: 3rem;
   top: $input-height - $child-spacing;
   left: $padding;
   z-index: 1;
+  color: $text-color;
   transition: all 0.15s ease-in;
+}
 
-  &.focused {
-    top: 0;
-    left: 0;
-    font-weight: 600;
-    color: gray;
-  }
+.fuck-form-input__label--error {
+  color: $error-color;
+}
 
-  &.valid {
-    color: green;
-  }
-
-  &.error {
-    color: red;
-  }
+.fuck-form-input__label--focused {
+  top: 0;
+  left: 0;
+  font-weight: 600;
 }
 
 .fuck-form-input {
   box-shadow: 0 4px 8px rgba(0, 0, 51, 0.25);
+  color: $text-color;
   height: $input-height;
   padding-left: $padding;
   border-radius: 8px;
   margin-top: $label-text-height + $child-spacing;
-  border: 0;
   font-size: $label-text-height;
   outline: none;
-
-  &.valid {
-    border-color: green;
-  }
-
-  &.error {
-    border-color: red;
-  }
+  border: 2px solid transparent;
 }
 
-* {
+.fuck-form-input--valid {
+  color: green;
+}
 
-  font-family: 'Raleway', sans-serif;
+.fuck-form-input--error {
+  border-color: red;
+}
 
+.fuck-form__error-list {
+  margin-left: $child-spacing;
+  margin-top: $child-spacing;
+  list-style: none;
+  color: $error-color;
+  font-weight: bold;
 }

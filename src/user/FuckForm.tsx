@@ -89,7 +89,6 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
 
   return (
     <form onSubmit={submit} className={formClassName}>
-      <legend>User</legend>
       {inputs}
       <button className="fuck-form__button">Submit</button>
     </form>
