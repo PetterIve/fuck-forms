@@ -33,8 +33,6 @@ type FuckFormErrorMap = Map<string, FuckFormError>;
 
 export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
   const { className, onFormSubmitted, schema } = props;
-  // @ts-ignore
-  const children: JoiChild[] = schema._inner.children;
 
   const [formState, setFormState] = useState({});
   const setFormKey = (key: string, value: any) => {
@@ -46,6 +44,8 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
 
   const [errorMap, setErrorMap] = useState<FuckFormErrorMap>(new Map());
 
+  // @ts-ignore
+  const children: JoiChild[] = schema._inner.children;
   const inputProps: FuckFormInputProps[] = children.map(child => {
     const {key} = child;
     let placeholder;
