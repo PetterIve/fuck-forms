@@ -37,7 +37,15 @@ export const FuckFormInput = (props: FuckFormInputProps) => {
   return (
     <div className="fuck-form-input__container">
       <label className={labelClassName}  htmlFor={identifier}>{label}</label>
-      <input className={inputClassName} placeholder={placeholder} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
+      <input
+        className={inputClassName}
+        id={identifier}
+        onBlur={() => setFocused(false)}
+        onChange={parseValue}
+        onFocus={() => setFocused(true)}
+        placeholder={placeholder}
+        value={value}
+      />
       {error && <ul className="fuck-form__error-list">
         {error.messages.map(error => (
           <li>{error}</li>
