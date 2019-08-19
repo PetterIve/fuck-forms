@@ -10,14 +10,14 @@ export interface FuckFormError {
 
 export interface FuckFormInputProps {
   error?: FuckFormError;
-  key: string;
+  identifier: string;
   label: string;
   onValueChanged: (newValue: string)=> void;
   placeholder?: string;
 }
 
 export const FuckFormInput = (props: FuckFormInputProps) => {
-  const {error, key, label, onValueChanged } = props;
+  const {error, identifier, label, onValueChanged } = props;
 
   const [value, setValue] = useState('');
   useEffect(() => {
@@ -35,8 +35,8 @@ export const FuckFormInput = (props: FuckFormInputProps) => {
   const inputClassName = classnames('fuck-form-input', {'fuck-form-input--error': error});
 
   return (
-    <div key={key} className="fuck-form-input__container">
-      <label className={labelClassName}  htmlFor={key}>{label}</label>
+    <div key={identifier} className="fuck-form-input__container">
+      <label className={labelClassName}  htmlFor={identifier}>{label}</label>
       <input className={inputClassName} placeholder={placeholder} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} value={value} onChange={parseValue} />
       {error && <ul className="fuck-form__error-list">
         {error.messages.map(error => (

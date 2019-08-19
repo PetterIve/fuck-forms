@@ -58,10 +58,10 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
     }
     return {
       error: errorMap.get(child.key),
-      key: child.key,
+      identifier: child.key,
       label: label!,
+      onValueChanged: (newValue: string) => setFormKey(key, newValue),
       placeholder,
-      onValueChanged: (newValue: string) => setFormKey(key, newValue)
   }});
 
   const inputs = inputProps.map(inputProps => (
