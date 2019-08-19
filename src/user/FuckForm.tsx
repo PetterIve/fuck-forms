@@ -46,7 +46,7 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
 
   const [errorMap, setErrorMap] = useState<FuckFormErrorMap>(new Map());
 
-  const mapped: FuckFormInputProps[] = children.map(child => {
+  const inputProps: FuckFormInputProps[] = children.map(child => {
     const {key} = child;
     let placeholder;
     if (child.schema._examples && child.schema._examples.length > 0 ){
@@ -64,7 +64,7 @@ export const FuckForm = <T extends {}> (props: FuckFormProps<T>) => {
       onValueChanged: (newValue: string) => setFormKey(key, newValue)
   }});
 
-  const inputs = mapped.map(inputProps => (
+  const inputs = inputProps.map(inputProps => (
     <FuckFormInput {...inputProps}/>
   ))
 
